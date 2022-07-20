@@ -16,4 +16,13 @@ class BirdsController < ApplicationController
     end
   end
 
+  def create 
+    birds = Bird.create(birds_params)
+    render json: birds, status: :created
+  end 
+
+  private birds_params
+    params.permit(:name, :species) 
+  end
+
 end
